@@ -44,3 +44,25 @@ http://convertjson.com/xml-to-json.htm
 
 Put the files in a known directory - then run the app.
 
+How to request receipt data from Coop.
+
+- You must have an online login, usually done using email then connect your membership id with your account.
+- Login to your account.
+- At the bottom of the start page you will find 'Kundservice' - click 'Personuppgifter' below.
+- Scroll down to the link: "Information till dig som är kund hos Coop Online och handlar i vår butik på nätet" and click it.
+- Scroll down to the link: "Blankett för registerutdrag eller radering (pdf)" and click it.
+- This will open a PDF document, print it, fill in your name, personnummer then sign.
+- Mark the checkbox "Jag vill veta om Coop Online behandlar personuppgifter om mig...." and
+"på ett USB-minne"
+- Either post (snail-mail) or scan/photograph and email to the adress mentioned in the document.
+
+
+How to request receipt data from City-Gross.
+
+- I am unsure how to do this, on their website they say you should call customer support.
+This seems a bit unnecessary and I will try to mail them.
+
+
+
+
+
