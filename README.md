@@ -27,4 +27,10 @@ http://convertjson.com/xml-to-json.htm
 Next step is to put json files somewhere on the filesystem and point the main program to it.
 Then recompile and run your app.
 
+How to request receipt data from ICA.
 
+- You must have an online login, this is usually done using 'Mobilt BankID'.
+- Login to your account.
+- Go to 'Inställningar' by selecting your account (name)
+- Select 'Mina data' and then 'Hantera Dina Data'
+- Click 'Portera din data' and sign the request - you will get the xml files sent to you by email within a day or two.
