@@ -27,9 +27,6 @@ public class Item {
         this.itemDesc = itemDesc;
         this.discountValue = discountValue;
         this.receiptId = receiptId;
-        if (itemDesc.trim().length() == 0) {
-            System.out.println("Empty desc");
-        }
     }
 
     public float getQuantity() {

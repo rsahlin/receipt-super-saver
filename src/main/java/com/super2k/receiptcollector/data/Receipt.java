@@ -9,20 +9,22 @@ import java.util.List;
  */
 public class Receipt {
 
+    protected String customerId;
     protected String receiptType;
     protected float totalDiscount;
     protected float transactionValue;
     protected String receiptId;
     protected Date transactionTimestamp;
-    protected String marketingName;
+    protected Store store;
     protected float vatAmount;
     protected String paymentType;
 
     protected Item[] items;
 
-    public Receipt(String receiptType, float totalDiscount, float transactionValue, String receiptId,
-            Date transactionTimestamp, String marketingName, float vatAmount,
+    public Receipt(String customerId, String receiptType, float totalDiscount, float transactionValue, String receiptId,
+            Date transactionTimestamp, String storeName, float vatAmount,
             String paymentType, List<Item> items) {
+        this.customerId = customerId;
         this.receiptType = receiptType;
         this.totalDiscount = totalDiscount;
         this.transactionValue = transactionValue;
@@ -30,7 +32,7 @@ public class Receipt {
         this.paymentType = paymentType;
         this.items = new Item[items.size()];
         this.transactionTimestamp = transactionTimestamp;
-        this.marketingName = marketingName;
+        this.store = new Store(storeName);
         this.vatAmount = vatAmount;
         for (int index = 0; index < this.items.length; index++) {
             this.items[index] = items.get(index);

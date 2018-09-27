@@ -64,4 +64,28 @@ public class DefaultReceiptDAO implements ReceiptDAO {
         return result;
     }
 
+    @Override
+    public List<Store> findStores(Receipts receipts) {
+        List<Store> result = new ArrayList<>();
+        List<Receipt> receiptList = receipts.getReceipts();
+        for (Receipt r : receiptList) {
+            // TODO - lazy method to sort by stores, improve.
+            if (!result.contains(r.store)) {
+                result.add(r.store);
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public Receipts findByStore(Receipts receipts, String storeName) {
+        List<Receipt> storeReceipts = new ArrayList<>();
+        for (Receipt r : receipts.getReceipts()) {
+            if (r.store.getName().contentEquals(storeName)) {
+                storeReceipts.add(r);
+            }
+        }
+        return new DefaultReceipts(storeReceipts);
+    }
+
 }

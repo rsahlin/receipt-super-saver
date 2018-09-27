@@ -8,6 +8,7 @@ import com.super2k.receiptcollector.dao.ReceiptDAO.SimpleDate;
 import com.super2k.receiptcollector.dao.Receipts;
 import com.super2k.receiptcollector.data.DefaultReceiptDAO;
 import com.super2k.receiptcollector.data.ItemCollection;
+import com.super2k.receiptcollector.data.Store;
 
 /**
  * Simple main class to load ICA receipt data and display most purchased items, sorted by total sum.
@@ -24,6 +25,12 @@ public class ReceiptCollector {
                             "Butik_kvittorader.json" });
             System.out.println("Loaded " + receipts.getCount() + " receipts");
             ReceiptDAO dao = new DefaultReceiptDAO();
+            List<Store> stores = dao.findStores(receipts);
+            System.out.println("Found " + stores.size() + " stores");
+            for (Store s : stores) {
+                Receipts storeReceipts = dao.findByStore(receipts, s.getName());
+                System.out.println("Store: " + s.getName() + " total price: " + storeReceipts.getTotalPrice());
+            }
             Receipts result = dao.findByDate(receipts, new SimpleDate(2018, 7, 1), new SimpleDate(2018, 9, 1));
             print(result);
             List<ItemCollection> itemList = dao.sortByItemsPrice(result);

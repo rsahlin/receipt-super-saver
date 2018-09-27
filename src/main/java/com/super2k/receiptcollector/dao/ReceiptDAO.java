@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.super2k.receiptcollector.data.ItemCollection;
+import com.super2k.receiptcollector.data.Store;
 
 /**
  * Access abstraction for sorting/searching receipt data
@@ -46,11 +47,28 @@ public interface ReceiptDAO {
     public Receipts findByDate(Receipts receipts, Date begin, Date end);
 
     /**
+     * Returns a list with receipts from the specified store.
+     * 
+     * @param receipts
+     * @param storeName
+     * @return
+     */
+    public Receipts findByStore(Receipts receipts, String storeName);
+
+    /**
      * Returns a list with items added together by item description (name), ordered by total item price
      * 
      * @param receipts
      * @return
      */
     public List<ItemCollection> sortByItemsPrice(Receipts receipts);
+
+    /**
+     * Returns a list with Store objects where purchases have been made.
+     * 
+     * @param receipts
+     * @return
+     */
+    public List<Store> findStores(Receipts receipts);
 
 }

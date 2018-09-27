@@ -41,11 +41,12 @@ public class ICAReceipts {
         /**
          * Creates a new receipt using this class and list of rows.
          * 
+         * @param customerId
          * @param items
          * @return
          * @throws IllegalArgumentException If items contains transactionId that does not match in this class
          */
-        public Receipt createReceipt(List<RowTransaction> items) {
+        public Receipt createReceipt(String customerId, List<RowTransaction> items) {
             List<Item> itemList = new ArrayList<>();
             for (RowTransaction rt : items) {
                 Item item = rt.createItem();
@@ -55,7 +56,8 @@ public class ICAReceipts {
                 }
                 itemList.add(item);
             }
-            return new Receipt(receiptType, totalDiscount, transactionValue, transactionId, transactionTimestamp,
+            return new Receipt(customerId, receiptType, totalDiscount, transactionValue, transactionId,
+                    transactionTimestamp,
                     marketingName, vatAmount, paymentType, itemList);
 
         }

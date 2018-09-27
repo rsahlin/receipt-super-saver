@@ -34,7 +34,7 @@ public class ICAReceiptCollection implements ReceiptLoader.ReceiptConverter {
             if (receipt != null) {
                 rowList.clear();
                 this.rows.findRows(receipt, rowList);
-                result[index] = receipt.createReceipt(rowList);
+                result[index] = receipt.createReceipt(receipts.transactionHeader.customerId, rowList);
                 index++;
             }
         }
