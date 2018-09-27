@@ -33,4 +33,14 @@ How to request receipt data from ICA.
 - Login to your account.
 - Go to 'Inställningar' by selecting your account (name)
 - Select 'Mina data' and then 'Hantera Dina Data'
-- Click 'Portera din data' and sign the request - you will get the xml files sent to you by email within a day or two.
+- Click 'Portera din data' and sign the request - you will get a download linke sent to your email within a day or two.
+
+- Once you get the download link, download data to your computer then convert xml files to json using:
+http://convertjson.com/xml-to-json.htm
+- Use option 1: Choose an xml file and locate 'Butik_kvitto.xml'
+- On the right hand side select option 'Remove top-level root' then click 'Convert xml to json'
+- In the 'Save your result' box type 'Butik_kvitto' then click to download result.
+* Repeat the above steps with 'Butik_kvittorader.xml' - saving this to 'Butik_kvittorader'
+
+Put the files in a known directory - then run the app.
+
