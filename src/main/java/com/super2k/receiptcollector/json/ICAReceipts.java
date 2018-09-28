@@ -57,7 +57,7 @@ public class ICAReceipts {
                 itemList.add(item);
             }
             return new Receipt(customerId, receiptType, totalDiscount, transactionValue, transactionId,
-                    transactionTimestamp,
+                    transactionTimestamp, ICAReceiptConverter.ICA_BRAND,
                     marketingName, vatAmount, paymentType, itemList);
 
         }

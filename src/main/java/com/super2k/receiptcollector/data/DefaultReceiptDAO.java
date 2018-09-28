@@ -34,7 +34,7 @@ public class DefaultReceiptDAO implements ReceiptDAO {
                 result.add(r);
             }
         }
-        return new DefaultReceipts(result);
+        return ReceiptsFactory.getInstance().createReceipts(result);
     }
 
     @Override
@@ -85,7 +85,23 @@ public class DefaultReceiptDAO implements ReceiptDAO {
                 storeReceipts.add(r);
             }
         }
-        return new DefaultReceipts(storeReceipts);
+        return ReceiptsFactory.getInstance().createReceipts(storeReceipts);
+    }
+
+    @Override
+    public List<Receipts> sortByCustomerId(Receipts receipts) {
+        Hashtable<String, Receipts> customerReceipts = new Hashtable<>();
+        for (Receipt r : receipts.getReceipts()) {
+            Receipts byCustomer = customerReceipts.get(r.customerId);
+            if (byCustomer == null) {
+                byCustomer = ReceiptsFactory.getInstance().createReceipts();
+                customerReceipts.put(r.customerId, byCustomer);
+            }
+            byCustomer.addReceipt(r);
+        }
+        ArrayList<Receipts> result = new ArrayList<>();
+        result.addAll(customerReceipts.values());
+        return result;
     }
 
 }

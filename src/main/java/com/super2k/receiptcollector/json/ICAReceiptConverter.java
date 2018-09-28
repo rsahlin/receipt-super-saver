@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.super2k.receiptcollector.dao.ReceiptLoader;
 import com.super2k.receiptcollector.dao.Receipts;
-import com.super2k.receiptcollector.data.DefaultReceipts;
 import com.super2k.receiptcollector.data.Receipt;
+import com.super2k.receiptcollector.data.ReceiptsFactory;
 import com.super2k.receiptcollector.json.ICAReceiptRows.RowTransaction;
 import com.super2k.receiptcollector.json.ICAReceipts.ReceiptTransaction;
 
@@ -14,12 +14,14 @@ import com.super2k.receiptcollector.json.ICAReceipts.ReceiptTransaction;
  * Container for receipts and receipt rows
  *
  */
-public class ICAReceiptCollection implements ReceiptLoader.ReceiptConverter {
+public class ICAReceiptConverter implements ReceiptLoader.ReceiptConverter {
+
+    public final static String ICA_BRAND = "ICA";
 
     protected ICAReceipts receipts;
     protected ICAReceiptRows rows;
 
-    public ICAReceiptCollection(ICAReceipts receipts, ICAReceiptRows rows) {
+    public ICAReceiptConverter(ICAReceipts receipts, ICAReceiptRows rows) {
         this.receipts = receipts;
         this.rows = rows;
     }
@@ -38,7 +40,7 @@ public class ICAReceiptCollection implements ReceiptLoader.ReceiptConverter {
                 index++;
             }
         }
-        return new DefaultReceipts(result);
+        return ReceiptsFactory.getInstance().createReceipts(result);
     }
 
 }

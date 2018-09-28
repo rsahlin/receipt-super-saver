@@ -6,9 +6,23 @@ package com.super2k.receiptcollector.data;
  */
 public class Store {
 
+    /**
+     * Store brand, if known. For instance ICA, Coop
+     */
+    protected String brand;
+    /**
+     * Name of specific store, eg 'ICA Nära Genarp' - normally unique name.
+     */
     protected String name;
 
-    public Store(String name) {
+    /**
+     * Creates a new store with the specified brand and name
+     * 
+     * @param brand
+     * @param name
+     */
+    public Store(String brand, String name) {
+        this.brand = brand;
         this.name = name;
     }
 

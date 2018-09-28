@@ -12,6 +12,13 @@ import com.super2k.receiptcollector.data.Receipt;
 public interface Receipts {
 
     /**
+     * Adds the receipt to list of receipts
+     * 
+     * @param receipt
+     */
+    public void addReceipt(Receipt receipt);
+
+    /**
      * Returns a list with all receipts
      * 
      * @return

@@ -31,6 +31,8 @@ public class ReceiptCollector {
                 Receipts storeReceipts = dao.findByStore(receipts, s.getName());
                 System.out.println("Store: " + s.getName() + " total price: " + storeReceipts.getTotalPrice());
             }
+            List<Receipts> byCustomer = dao.sortByCustomerId(receipts);
+            System.out.println("Found " + byCustomer.size() + " customers");
             Receipts result = dao.findByDate(receipts, new SimpleDate(2018, 7, 1), new SimpleDate(2018, 9, 1));
             print(result);
             List<ItemCollection> itemList = dao.sortByItemsPrice(result);

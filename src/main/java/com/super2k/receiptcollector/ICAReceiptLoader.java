@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.super2k.receiptcollector.dao.ReceiptLoader;
 import com.super2k.receiptcollector.dao.Receipts;
-import com.super2k.receiptcollector.json.ICAReceiptCollection;
+import com.super2k.receiptcollector.json.ICAReceiptConverter;
 import com.super2k.receiptcollector.json.ICAReceiptRows;
 import com.super2k.receiptcollector.json.ICAReceipts;
 
@@ -49,7 +49,7 @@ public class ICAReceiptLoader implements ReceiptLoader {
             ICAReceipts receipts = gson.fromJson(reader, ICAReceipts.class);
             reader = new InputStreamReader(inputStreams[1], "UTF-8");
             ICAReceiptRows rows = gson.fromJson(reader, ICAReceiptRows.class);
-            ICAReceiptCollection loaded = new ICAReceiptCollection(receipts, rows);
+            ICAReceiptConverter loaded = new ICAReceiptConverter(receipts, rows);
             return loaded.convertReceipts();
         } catch (UnsupportedEncodingException e) {
             return null;

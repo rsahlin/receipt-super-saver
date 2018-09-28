@@ -56,6 +56,14 @@ public interface ReceiptDAO {
     public Receipts findByStore(Receipts receipts, String storeName);
 
     /**
+     * Sorts receipts by customer Id
+     * 
+     * @param receipts
+     * @return List with receipts ordered by customer id
+     */
+    public List<Receipts> sortByCustomerId(Receipts receipts);
+
+    /**
      * Returns a list with items added together by item description (name), ordered by total item price
      * 
      * @param receipts
